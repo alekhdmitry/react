@@ -1,0 +1,169 @@
+@import '../../../../stylesheets/variables';
+
+  @mixin setButtonStyle($color) {
+    color: $color-white;
+    background-color: $color;
+    border: 1px transparent solid;
+    border-radius: 5px;
+    &:hover:not(.button-disabled) {
+      background-color: darken($color, 10%);
+      border-color: darken($color, 10%);
+    }
+    &:focus:not(.button-disabled), &.active:not(.button-disabled) {
+      background-color: darken($color, 20%);
+      border-color: darken($color, 20%);
+      outline: none;
+    }
+    &.button-outline {
+      color: $color;
+      border-color: $color;
+      &:hover:not(.button-disabled) {
+        color: $color-white;
+        border-color: darken($color, 10%);
+      }
+      &:focus:not(.button-disabled), &.active:not(.button-disabled) {
+        color: $color-white;
+        border-color: darken($color, 20%);
+      }
+      &.button-disabled {
+        color: desaturate($color, 80%);
+        border-color: desaturate($color, 80%);
+        background-color: transparent;
+      }
+    }
+    &.button-disabled {
+      color: desaturate($color-white, 80%);
+      background-color: desaturate($color, 80%);
+    }
+    &.button-hidden {
+      display: none;
+    }
+  }
+
+  //Default
+  .button {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: $font-weight-semibold;
+    padding: 13px 39px;
+    margin: 0 3px 3px;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border $transition-fast, color $transition-fast, background $transition-fast;
+  }
+
+.button-disabled {
+  cursor: not-allowed;
+}
+
+  //Link fix
+  a.button {
+    display: inline-block;
+  }
+
+  //Block
+  .button-block {
+    display: block;
+    width: 100%;
+  }
+  .button-inline {
+    display: inline-block;
+  }
+
+  //Style
+  .button-primary {
+    @include setButtonStyle($color-primary);
+  }
+
+  .button-secondary {
+    @include setButtonStyle($color-secondary);
+  }
+
+  .button-tertiary {
+    @include setButtonStyle($color-tertiary);
+  }
+
+  .button-default {
+    @include setButtonStyle($color-turquoise);
+  }
+
+  .button-facebook {
+    @include setButtonStyle($color-facebook);
+  }
+
+  .button-danger {
+    @include setButtonStyle($color-danger);
+  }
+
+  .button-success {
+    @include setButtonStyle($color-success);
+  }
+
+  //Align
+  .button-left {
+    text-align: left;
+  }
+
+  .button-center {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .button-right {
+    text-align: right;
+  }
+
+  //Size
+  .button-large-btn {
+    font-size: 1.4rem;
+    padding: 10px 48px;
+  }
+
+  .button-small-btn {
+    font-size: 0.6rem;
+  }
+
+  //Types
+  .button-outline {
+    background-color: transparent;
+  }
+
+  .button-rounded {
+    border-radius: 99px;
+  }
+
+  .button-uppercase {
+    text-transform: uppercase;
+  }
+
+  .button-bold {
+    font-weight: $font-weight-bold;
+  }
+
+  .button-clear {
+    background: transparent;
+    color: $color-primary;
+    &:hover {
+      color: darken($color-primary, 15%);
+    }
+  }
+
+  .button-back {
+    span {
+      &:before {
+        content: "ᐸ";
+        padding-right: 10px;
+      }
+    }
+  }
+
+  .button-next {
+    span {
+      &:after {
+        content: "ᐳ";
+        padding-left: 10px;
+      }
+    }
+  }

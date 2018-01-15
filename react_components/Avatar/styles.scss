@@ -1,0 +1,94 @@
+@import '../../../../stylesheets/variables';
+
+.avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  transition: opacity $transition-fast;
+  .avatar-img {
+    display: block;
+    width: 100%;
+  }
+  margin: 0.2rem;
+
+  &.avatar-loading {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: $color-grey;
+
+    }
+    &::after {
+      content: '';
+      border: 3px solid $color-grey;
+      border-top: 3px solid $color-white;
+      border-right: 3px solid $color-white;
+      border-radius: 50%;
+      width: 20%;
+      height: 20%;
+      animation: spin 1s linear infinite;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      z-index: 1;
+    }
+    img {
+      display: none !important;
+    }
+  }
+}
+
+//velikosti
+
+.avatar-small {
+  height: 26px;
+  width: 26px;
+}
+
+.avatar-normal {
+  height: 40px;
+  width: 40px;
+}
+
+.avatar-large {
+  height: 48px;
+  width: 48px;
+}
+
+.avatar-large-x {
+  height: 160px;
+  width: 160px;
+}
+
+.avatar-center {
+  margin: 0 auto;
+}
+
+.avatar-inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.avatar-clickable {
+  cursor: pointer;
+}
+
+.avatar-clickable:hover {
+  opacity: 0.7;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
